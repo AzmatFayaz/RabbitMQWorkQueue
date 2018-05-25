@@ -6,7 +6,7 @@ amqp.connect('amqp://localhost', function (err, conn) {
     var ex = 'logs'
     var msg = process.argv.slice(2).join(' ') || 'Hello World!'
 
-    ch.assertExchange(ex, 'fanout', {durable: false})
+    ch.assertExchange(ex, 'fanout', {durable: true})
     ch.publish(ex, '', Buffer.from(msg))
     console.log(' [x] Sent %s', msg)
   })
